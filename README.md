@@ -4,7 +4,7 @@
 **Trustworthy Intelligent Education: A Systematic Perspective on Progress, Challenges, and Future Directions**
 
 **Authors / 作者：** Xiaoshan Yu, Shangshang Yang, Ziwen Wang, Haiping Ma, Xingyi Zhang  
-**Affiliation / 单位：** Anhui University（安徽大学）
+**Affiliation / 单位：** Anhui University
 
 [📄 Paper / 论文](https://arxiv.org/pdf/2601.21837) · [📖 Online Reading / 在线阅读](https://arxiv.org/html/2601.21837v1) · [📚 arXiv](https://arxiv.org/abs/2601.21837)
 
