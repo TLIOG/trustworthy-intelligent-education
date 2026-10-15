@@ -1,78 +1,103 @@
-# Trustworthy Intelligent Education — 论文网站
+# Trustworthy Intelligent Education
+# 可信智能教育：研究进展、挑战与未来方向
 
-独立静态网站，可部署到 GitHub Pages。无需 Node.js、安装依赖、API Key 或构建步骤。
+**Trustworthy Intelligent Education: A Systematic Perspective on Progress, Challenges, and Future Directions**
 
-## 本地查看
+**Authors / 作者：** Xiaoshan Yu, Shangshang Yang, Ziwen Wang, Haiping Ma, Xingyi Zhang  
+**Affiliation / 单位：** Anhui University（安徽大学）
 
-解压后双击 `index.html` 即可查看。图表放大、维度切换和导航可本地使用；复制引用在 HTTPS 部署后使用剪贴板 API，本地受限制时会自动选择文字供手动复制。
+[📄 Paper / 论文](https://arxiv.org/pdf/2601.21837) · [📖 Online Reading / 在线阅读](https://arxiv.org/html/2601.21837v1) · [📚 arXiv](https://arxiv.org/abs/2601.21837)
 
-## 方法一：GitHub 网页上传（推荐）
+## 📌 Overview / 论文概述
 
-1. 登录 GitHub，选择 New repository。
-2. 仓库名填写 `trustworthy-education`，选择 Public，勾选 Add a README file，创建仓库。
-3. 选择 Add file → Upload files。解压此文件包，将其中的文件和 `assets` 文件夹拖入上传区域。
-4. 重点：仓库首页必须直接看到 `index.html`、`style.css`、`app.js` 和 `assets/`。不要只上传 ZIP，也不要把它们放进额外的外层文件夹。提交 Commit changes。可用本包的 README 替换默认 README。
-5. 打开仓库 Settings → Pages。
-6. Build and deployment → Source 选择 Deploy from a branch。
-7. Branch 选择 `main`，文件夹选择 `/ (root)`，点击 Save。
-8. 等待部署完成，回到 Settings → Pages 点击 Visit site。
+智能教育系统正广泛参与学习者能力评估、学习资源推荐与教学支持。由于教育场景涉及未成年人和弱势群体、细粒度的个人学习数据，以及对学习者发展具有长期影响的决策，系统的可信性成为不可忽视的研究问题。
 
-网址形式：
+本综述围绕 **“教育系统做什么”与“如何让系统值得信任”** 两个层面，构建“**五类教育任务 × 五个可信维度**”的组织框架，系统梳理已有研究的方法与策略，并总结其局限和未来研究方向。
 
-`https://你的GitHub用户名.github.io/trustworthy-education/`
+Intelligent education increasingly shapes assessment, recommendation, and instructional support. Sensitive learner data and consequential educational decisions make trustworthiness a central concern. This survey connects **five educational task categories** with **five trustworthiness perspectives**, organizing existing methods, identifying limitations, and outlining future directions.
 
-请将“你的GitHub用户名”替换为实际用户名。示例仓库名可以自行修改，网址尾部会随之改变。
+![Taxonomy of Trustworthy Intelligent Education / 可信智能教育分类框架](assets/taxonomy.webp)
 
-说明：压缩包含 `.nojekyll`，用于跳过 Jekyll。Mac Finder 可能隐藏它；本网站没有必须绕过 Jekyll 的下划线资源，即使网页上传漏掉此文件，现有页面也可发布。使用下面的 Git 命令会一并上传它。
+*Figure 1. The taxonomy of trustworthy intelligent education. / 图1：可信智能教育的整体分类框架。*
 
-## 方法二：使用 Git 命令
+## 💡 Motivation & Contributions / 动机与贡献
 
-先创建同名空白仓库（不要初始化 README），然后在解压后的、能直接看到 `index.html` 的目录打开终端：
+现有研究往往围绕某个任务中的单一可信问题展开，而相关综述的讨论又容易停留在宏观层面，缺乏清晰、统一的分类。本文旨在连接分散的研究，提供便于理解和定位相关工作的结构化视角。
 
-```bash
-git init
-git add .
-git commit -m "Add paper project website"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/trustworthy-education.git
-git push -u origin main
+Existing work is often fragmented across individual tasks or trust concerns. The survey provides a structured perspective through four contributions:
+
+- **Task landscape / 任务梳理：** 按教育功能组织五类代表性任务，明确可信研究所服务的任务背景。
+- **Trustworthiness taxonomy / 可信分类：** 从五个互补维度归纳已有方法与解决策略。
+- **Critical discussion / 挑战分析：** 总结不同可信维度在真实教育场景中的局限与开放问题。
+- **Research agenda / 未来方向：** 从现实挑战和新兴技术两个角度讨论后续研究机会。
+
+## 🎓 Educational Task Landscape / 教育任务版图
+
+| Task category / 任务类别 | Representative scope / 代表性内容 |
+| --- | --- |
+| **Learner Ability Assessment / 学习者能力评估** | Cognitive Diagnosis、Knowledge Tracing、Computerized Adaptive Testing；认知诊断、知识追踪与计算机化自适应测试。 |
+| **Learning Resource Recommendation / 学习资源推荐** | Educational recommendation、learning path recommendation、curriculum sequencing；教育资源推荐、学习路径推荐与课程排序。 |
+| **Learning Analytics / 学习分析** | Learning behavior analysis、engagement and risk prediction、performance prediction；学习行为分析、参与度与风险预测、表现预测。 |
+| **Educational Content Understanding / 教育内容理解** | Item generation、difficulty and quality estimation、feedback generation；试题生成、难度与质量评估、反馈生成。 |
+| **Instructional Assistance / 教学辅助** | Automated grading、intervention recommendation、AI-based teaching assistance；自动评分、教学干预推荐与 AI 教学辅助。 |
+
+![Educational Task Landscape / 教育任务版图](assets/tasks.webp)
+
+*Figure 2. Five representative task categories. / 图2：五类代表性智能教育任务。*
+
+## 🛡️ Trustworthiness Perspectives / 五个可信维度
+
+| Perspective / 可信维度 | Research focus / 关注问题 | Method families / 方法类别 |
+| --- | --- | --- |
+| **Safety & Privacy / 安全与隐私** | 如何保护敏感学习数据，并识别潜在泄露风险？ / Protect sensitive learning data and examine leakage risks. | Federated Learning、Machine Unlearning、Privacy Attacks；联邦学习、机器遗忘与隐私攻击研究。 |
+| **Robustness / 鲁棒性** | 如何在噪声记录、异常行为等条件下维持可靠建模？ / Maintain reliability under noisy records and atypical behavior. | Denoising-based Methods、Anomaly-aware Modeling；去噪方法与异常感知建模。 |
+| **Fairness / 公平性** | 如何识别和缓解学习者建模与教育决策中的偏差？ / Identify and mitigate bias in learner modeling and educational decisions. | Debiasing-based Methods、Fairness-aware Training；去偏方法与公平感知训练。 |
+| **Explainability / 可解释性** | 如何为学生、教师和管理者提供可理解的决策依据？ / Make educational decisions understandable to stakeholders. | Intrinsically Interpretable Models、Post-hoc Explanations、LLM-based Explanations；内在可解释模型、事后解释与大模型辅助解释。 |
+| **Sustainability / 可持续性** | 如何兼顾计算效率、可扩展性及长期维护？ / Support efficient, scalable, and maintainable deployment. | Model Compression、Acceleration Techniques；模型压缩与加速技术。 |
+
+![Research Landscape / 可信智能教育研究版图](assets/framework.webp)
+
+*Figure 3. Research categories across trustworthiness perspectives. / 图3：不同可信维度下的研究类别。*
+
+## 🔍 Open Challenges / 关键挑战
+
+- **Across the pipeline / 跨流程可信性：** 现有方法多聚焦孤立任务，难以保障从数据采集、学习者建模到推荐与教学决策的整体可信性。Existing methods often address isolated tasks rather than interconnected educational processes.
+- **Over time / 长期可信性：** 学习者状态和教育决策的影响会随时间积累，单步或短期评估难以充分刻画长期公平性与可靠性。Trust must account for evolving learners and cumulative decision effects.
+- **Under realistic data / 真实数据条件：** 噪声、缺失、异常行为与分布变化，使理想化假设下的方法难以直接适应真实平台。Realistic educational data challenge assumptions about noise and learner behavior.
+- **Across objectives / 多目标权衡：** 隐私、鲁棒性、公平性、可解释性与效率之间可能存在权衡，需要结合教育目标进行系统考虑。Trust-related objectives must be considered alongside predictive performance and practical constraints.
+
+## 🚀 Future Directions / 未来研究方向
+
+本文从现实挑战与新兴研究前沿两个层面提出研究议程。
+
+The research agenda connects practical challenges with emerging capabilities:
+
+1. **Holistic Trustworthiness / 全流程可信保障：** 探索贯穿学习数据、认知建模、推荐、决策与教学支持的可信框架。
+2. **Long-term and Sequential Trust Modeling / 长期与序列可信建模：** 研究可信属性随学习过程和决策序列的变化。
+3. **Trust under Imperfect Data / 不完美数据下的可信学习：** 显式考虑噪声、缺失和分布偏移。
+4. **Multimodal Trustworthy Education / 多模态可信教育：** 联合处理文本、图像、语音、视频与行为记录中的可信问题。
+5. **LLM-enabled Trustworthy Education / 大模型赋能的可信教育：** 关注幻觉、偏差、推理稳定性及教育目标对齐。
+6. **Multi-agent Educational Modeling / 多智能体教育建模：** 探索学生、教师等角色模拟的可靠性及基于模拟的策略风险。
+7. **Trust-aware Evaluation and Benchmarking / 可信感知评估与基准：** 在准确率之外，系统衡量安全、鲁棒、公平、解释与可持续性。
+
+## 📝 Citation / 引用
+
+如果本综述对你的研究有所帮助，欢迎引用：  
+If you find this survey useful, please consider citing:
+
+```bibtex
+@article{yu2026trustworthy,
+  title = {Trustworthy Intelligent Education: A Systematic Perspective on Progress, Challenges, and Future Directions},
+  author = {Yu, Xiaoshan and Yang, Shangshang and Wang, Ziwen and Ma, Haiping and Zhang, Xingyi},
+  year = {2026},
+  eprint = {2601.21837},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CY},
+  url = {https://arxiv.org/abs/2601.21837}
+}
 ```
 
-将 `YOUR_USERNAME` 换成你的 GitHub 用户名，再按方法一第 5–8 步开启 Pages。GitHub 身份认证按你自己的账户设置完成，不要把访问令牌写进网站文件。
+---
 
-## 想要没有仓库后缀的网址？
-
-- `https://YOUR_USERNAME.github.io/`：仓库必须命名为 `YOUR_USERNAME.github.io`。如果已有个人主页，建议使用上述项目仓库，避免覆盖个人主页。
-- `https://trustworthy-education.github.io/`：需要拥有名为 `trustworthy-education` 的 GitHub 账户或组织，并在其中创建 `trustworthy-education.github.io` 仓库。仅把普通仓库命名为这个名字，并不会获得该域名。账户或组织名称需实际可用。
-
-## 日后如何修改
-
-- 文字、作者、按钮链接：`index.html`
-- 配色、字体、布局、手机适配：`style.css`
-- 导航、图表放大、切换面板、复制引用：`app.js`
-- 原图与 favicon：`assets/`
-- 引用文件：`citation.bib`。修改引用时请同时更新 `index.html` 内的 BibTeX。
-
-提交到发布分支后，GitHub Pages 会自动重新部署。网站全部使用相对资源路径，支持项目子路径部署。
-
-## 排查
-
-- 404：确认 Pages 已启用、发布源为 main/root，且 index.html 位于仓库根目录；项目网址需包含仓库名。
-- 无样式或无图片：确认 style.css、app.js、assets/ 均已上传，保留文件名大小写和目录关系。
-- 部署失败：检查仓库 Actions 中的 pages build and deployment 日志。
-- 新内容没出现：等部署完成后强制刷新浏览器。
-
-## 内容与素材
-
-论文：Trustworthy Intelligent Education: A Systematic Perspective on Progress, Challenges, and Future Directions
-作者：Xiaoshan Yu, Shangshang Yang, Ziwen Wang, Haiping Ma, Xingyi Zhang
-arXiv：https://arxiv.org/abs/2601.21837
-
-三个图表来自论文；图 1 从 PDF 原图截取。网页按论文元数据列出作者单位，仅修正了原文 Artificial 的拼写。未添加未经核实的会议、录用或代码发布信息。
-设计参考：https://long-horizon-agents.github.io/
-
-GitHub 官方说明：
-- https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site
-- https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
-
-交付检查：本地资源、内部锚点、JavaScript 语法、图像文件及压缩包结构均已检查。当前环境未进行浏览器视觉与交互实测，GitHub 发布需由仓库拥有者完成。
+本仓库提供论文展示网站的静态页面与相关图表。以上图表来自论文。  
+This repository contains the static project website and figures accompanying the survey. Figures are reproduced from the paper.
